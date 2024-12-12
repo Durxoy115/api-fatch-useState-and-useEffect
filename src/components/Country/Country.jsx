@@ -1,6 +1,6 @@
     import { useState } from 'react';
     import './Country.css'
-    const Country = ({country, handleVisitedCountries}) => {
+    const Country = ({country, handleVisitedCountries, handleVisitedFlags}) => {
         const {name, capital, languages,population, area, flags} = country;
         // Convert languages object to an array of values
         const languageList = languages ? Object.values(languages) : [];
@@ -24,6 +24,7 @@
                 <img src={flags.png} alt="" />
                 <button style={{margin: '5px', width: '100%'}} onClick={handleVisited}>{visited ? 'Visited' : 'Going'}</button>
                 <button style={{width:'100%'}} onClick={() => handleVisitedCountries(country.name.common)}>Mark Visited</button>
+                <button onClick={() => {handleVisitedFlags(country.flags.png)}}>Add Flag</button>
                 <div style={{ color: visited ? 'orange' : 'black' }}>
                 {visited ? 'I have visited this country!' : 'I want to visit this country!'}
                 </div>
